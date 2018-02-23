@@ -1,15 +1,37 @@
 <?php
-$cyr = ['а', 'б', 'в', 'г', 'д', 'ѓ', 'е', 'ж', 'з', 'ѕ', 'и', 'ј', 'к', 'л', 'љ', 'м', 'н', 'њ', 'о', 'п', 'р', 'с', 'т', 'ќ', 'у', 'ф', 'х', 'ц', 'ч', 'џ', 'ш', 'А', 'Б', 'В', 'Г', 'Д', 'Ѓ', 'Е', 'Ж', 'З', 'Ѕ', 'И', 'Ј', 'К', 'Л', 'Љ', 'М', 'Н', 'Њ', 'О', 'П', 'Р', 'С', 'Т', 'Ќ', 'У', 'Ф', 'Х', 'Ц', 'Ч', 'Џ', 'Ш'];
-$lat = ['a', 'b', 'v', 'g', 'd', 'gj', 'e', 'zh', 'z', 'dz', 'i', 'j', 'k', 'l', 'lj', 'm', 'n', 'w', 'o', 'p', 'r', 's', 't', 'kh', 'u', 'f', 'h', 'c', 'ch', 'dzh', 'sh', 'A', 'B', 'V', 'G', 'D', 'Gj', 'E', 'Zh', 'Z', 'Dz', 'I', 'J', 'K', 'L', 'Lj', 'M', 'N', 'Nj', 'O', 'P', 'R', 'S', 'T', 'Kh', 'U', 'F', 'H', 'C', 'Ch', 'Dzh', 'Sh'];
+
+header('Content-Type:text/html; charset=utf-8'); 
+
+$lat = ['gj', 'zh', 'dz', 'lj', 'nj', 'kh', 'ch', 'dzh', 'sh', 'Gj', 'Zh', 'Dz', 'Lj', 'Nj', 'Kh', 'Ch', 'Sh', 'a', 'b', 'v', 'g', 'd', 'e', 'z', 'i', 'j', 'k', 'l',  'm', 'n', 'o', 'p', 'r', 's', 't', 'u', 'f', 'h', 'c', 'A', 'B', 'V', 'G', 'D', 'E', 'Z', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'R', 'S', 'T', 'U', 'F', 'H', 'C', 'X'];
+
+$cyr = ['ѓ', 'ж', 'ѕ', 'љ', 'њ', 'ќ', 'ч', 'џ', 'ш', 'Ѓ', 'Ж', 'Ѕ', 'Љ', 'Њ', 'Ќ', 'Ч','Sh', 'а', 'б', 'в', 'г', 'д', 'е', 'з', 'и', 'ј', 'к', 'л', 'м', 'н', 'о', 'п', 'р', 'с', 'т', 'у', 'ф', 'х', 'ц', 'А', 'Б', 'В', 'Г', 'Д', 'Е', 'З', 'И', 'Ј', 'К', 'Л', 'М', 'Н', 'О', 'П', 'Р', 'С', 'Т', 'У', 'Ф', 'Х', 'Ц', 'Џ'];
 
 
+// $cyr = ['а', 'б', 'в', 'г'];
+// $lat = ['a', 'b', 'v', 'g'];
 
-echo 'Tekst na latinica:'.'<br>'.$_POST['text_lat'].'<br>'.'<br>';
-echo 'Tekst na kirilica:'.'<br>'.str_replace($lat, $cyr, $_POST['text_lat']).'<br>'.'<br>';
+echo count($lat);
+echo '<br/>';
+echo count($cyr);
+echo '<br/>';
 
-// echo 'Tekst na kirilica:'.'<br>'.$_POST['text_cyr'].'<br>';
-// echo 'Tekst na latinica:'.'<br>'.str_replace($cyr, $lat, $_POST['text_cyr']);
-
+switch($_POST['opcija']){
+	case 'l2c':
+		// echo 'L2C';
+		// echo 'Tekst na latinica:'.'<br>'.$_POST['text'].'<br>'.'<br>';
+		// echo 'Tekst na kirilica:'.'<br>'.str_replace($lat, $cyr, $_POST['text']).'<br>'.'<br>';
+		echo str_replace($lat, $cyr, $_POST['text']);
+		break;
+	case 'c2l':
+		// echo 'C2L';
+		// echo 'Tekst na kirilica:'.'<br>'.$_POST['text'].'<br>';
+		// echo 'Tekst na latinica:'.'<br>'.str_replace($cyr, $lat, $_POST['text']);
+		// print_r($cyr);
+		// print_r($lat);
+		// echo $_POST['text'];
+		echo str_replace($cyr, $lat, $_POST['text']);
+		break;
+}
 
 
 ?>

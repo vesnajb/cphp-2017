@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8">
 	<title>Domasna 2</title>
 </head>
 <body>
 	<form action="dom2.php" method="POST">
-		<span>Vnesi tekst na latinica</span>
+		<textarea name="text"></textarea>
 		<br>
-		<textarea name="text_lat"></textarea>
-		<br>
-		<!-- <span>Vnesi teks na kirilica</span>
-		<br>
-		<textarea name="text_cyr"></textarea>
-		<br> -->
-	<button type="submit">Analiza</button>
+		<select name="opcija">
+			<option value="c2l">C2L</option>
+			<option value="l2c">L2C</option>
+		</select>
+	<button type="submit">Convert</button>
 	</form>
 </body>
 </html>
