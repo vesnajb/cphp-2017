@@ -7,7 +7,7 @@ echo $text.'<br>'.'<br>';
 
 $array = explode(" ", $text);
 
-$a = count($array);
+$a = str_word_count($text, 0);
 echo 'Broj na zborovi: '.$a.'<br>';
 
  $b = strlen($text);
