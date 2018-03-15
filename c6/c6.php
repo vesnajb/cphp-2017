@@ -152,7 +152,7 @@ class File {
 	private $handle;
 	private $filename;
 
-	public function _construct($filename){
+	public function __construct($filename){
 		$this->$filename = $filename;
 		$this->handle = fopen($filename, 'a+');
 		
