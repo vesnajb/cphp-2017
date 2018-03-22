@@ -237,6 +237,56 @@ class File {
 	// echo '<br>';
 	echo $f->read();
 	echo $f->caracters();
+	echo '<br>';
+echo '<br>';
 
+
+
+class Person{
+	public $name;
+	public $lastname;
+	public function setName($n){
+		$this->name = $n;
+	}
+	public function setLastname($l){
+		$this->lastname = $l;
+	}
+	
+}
+
+class teacher extends Person{
+	public $email;
+	public function setEmail($e){
+		$this->email = $e;
+	}
+	public function ID(){
+		echo 'Jas sum profesor';
+	}
+}
+class student extends Person{
+	public $IDnum;
+	public function setID_number($i){
+		$this->IDnum = $i;
+	}
+	public function ID(){
+		echo 'Jas sum student';
+	}
+}
+
+$t1=new teacher();
+$t1->setName("Petar");
+$t1->setLastname("Petrovski");
+$t1->setEmail("petar@gmail.com");
+$t1->ID();
+echo " ".$t1->name.", ".$t1->lastname.": ".$t1->email;
+echo '<br>';
+
+$s1=new student();
+$s1->setName("Goran");
+$s1->setLastname("Goranovski");
+$s1->setID_number('134/17');
+$s1->ID();
+echo " ".$s1->name."; ".$s1->lastname.", ".$s1->IDnum;
+echo '<br>';
 
 ?>
