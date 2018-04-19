@@ -1,7 +1,7 @@
 <?php
 
 $username = 'root';
-$password = 'root';
+$password = null;
 $host = '127.0.0.1';
 $dbname = 'blog';
 
