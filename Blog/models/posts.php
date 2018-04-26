@@ -10,7 +10,7 @@ function get_blog_posts(){
 }
 
 function add_blog_post($data){
-	$sql = 'insert into posts (title, permalink, content, publish_date, uid, image, image_thumbnail) values (:title, :permalink, :content, :publish_date, :uid, :image, :image_thumbnail)';
+	$sql = 'insert into posts (title, permalink, content, publish_date, uid, image) values (:title, :permalink, :content, :publish_date, :uid, :image)';
 	$query = DB::Get()->prepare($sql);
 	$query->blindValue(':title', $data['title'], PDO::PARAM_STR);
 	$query->blindValue(':permalink', $data['permalink'], PDO::PARAM_STR);
@@ -18,7 +18,6 @@ function add_blog_post($data){
 	$query->blindValue(':publish_date', $data['publish_date'], PDO::PARAM_STR);
 	$query->blindValue(':uid', $data['uid'], PDO::PARAM_INT);
 	$query->blindValue(':image', $data['image'], PDO::PARAM_STR);
-	$query->blindValue(':image_thumbnail', $data['image_thumbnail'], PDO::PARAM_STR);
 	$query->execute();
 }
 
