@@ -2,6 +2,13 @@
 
 include('../models/categories.php');
 
+$isValid = 	isset($_POST['category'])
+			&& $_POST['category'] != '';
+			
+if($isValid) {
+	$data = ['category' => $_POST['category']];
+	add_blog_post($data);
+}
 $res = get_blog_categories();
 
 ?>

@@ -11,6 +11,7 @@ function get_blog_posts(){
 
 function add_blog_post($data){
 	$sql = 'insert into posts (title, permalink, content, publish_date, uid, image) values (:title, :permalink, :content, :publish_date, :uid, :image)';
+	
 	$query = DB::Get()->prepare($sql);
 	$query->blindValue(':title', $data['title'], PDO::PARAM_STR);
 	$query->blindValue(':permalink', $data['permalink'], PDO::PARAM_STR);

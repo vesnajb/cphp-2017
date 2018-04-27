@@ -2,6 +2,16 @@
 
 include('../models/posts_category_link.php');
 
+$isValid = 	isset($_POST['pid'])
+			&& $_POST['pid'] != ''
+			&& isset($_POST['cid'])
+			&& $_POST['cid'] != '';
+
+if($isValid) {
+	$data = ['pid' => $_POST['pid'],'cid' => $_POST['cid']];
+	add_blog_post($data);
+}
+
 $res = get_blog_posts_category_link();
 
 ?>
