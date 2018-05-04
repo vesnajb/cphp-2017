@@ -7,10 +7,12 @@ $isValid = 	isset($_POST['category'])
 			
 if($isValid) {
 	$data = ['category' => $_POST['category']];
-	add_blog_post($data);
+	add_blog_categories($data);
 }
 $res = get_blog_categories();
 
+update_blog_categories();
+delete_blog_categories();
 ?>
 
 <table border="1" width="40%">

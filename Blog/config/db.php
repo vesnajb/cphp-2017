@@ -3,7 +3,7 @@
 class DB {
 	private static $instance;
 	private static $username = 'root';
-	private static $password = 'root';
+	private static $password = '';
 	private static $host = '127.0.0.1';
 	private static $dbname = 'blog';
 
