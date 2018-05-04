@@ -8,11 +8,14 @@ $isValid = 	isset($_POST['author'])
 			&& $_POST['comment'] != '';
 
 if($isValid) {
-	$data = ['author' => $_POST['author'],'comment' => $_POST['comment'], 'publish_date' =>$_POST['publish_date'],'uid' => $_POST['uid'],'pid' => $_POST['pid']];
-	add_blog_post($data);
+	$publish_date = date("Y-m-d H:i:s");
+	$data = ['author' => $_POST['author'],'comment' => $_POST['comment'], 'publish_date' =>$publish_date];
+	add_blog_comments($data);
 }
 
 $res = get_blog_comments();
+update_blog_comments();
+delete_blog_comments();
 
 ?>
 
@@ -28,8 +31,10 @@ $res = get_blog_comments();
 		<tr>
 			<td><?=$row['id']; ?></td>
 			<td><?=$row['author']; ?></td>
+			<td><?=$row['comment']; ?></td>
 			<td><?=$row['publish_date']; ?></td>
 			<td><?=$row['pid']; ?></td>
+
 		</tr>
 	<?php } ?>
 </table>

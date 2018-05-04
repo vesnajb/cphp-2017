@@ -1,4 +1,3 @@
-
 <?php
 
 include_once('../config/db.php');
@@ -18,5 +17,21 @@ function add_blog_categories($data){
 	$query->execute();
 }
 
+function update_blog_categories(){
+	$sql = 'UPDATE categories SET category="zivot" WHERE id=3';
+	$query = DB::Get()->query($sql);
+	$query->execute();
+	return $query->fetchAll(PDO::FETCH_ASSOC);
+}
+function delete_blog_categories(){
+	$sql = 'DELETE FROM categories WHERE id=2';
+	$query = DB::Get()->query($sql);
+	$query->execute();
+	return $query->fetchAll(PDO::FETCH_ASSOC);
+}
 
 ?>
+<form action="categories.php" method="post" autocomplete="off">
+	<input type="text" name="category" placeholder="title" autocomplete="off">
+	<button type="submit"> Save </button>
+</form>

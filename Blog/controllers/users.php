@@ -12,11 +12,13 @@ $isValid = isset($_POST['firstname'])
 			&& $_POST['password'] != '';
 
 if($isValid) {
-	$data = ['firstname' => $_POST['firstname'],'lastname' => $_POST['lastname'],'email' => $_POST['email'],'password' =>$_POST['password'],'avatar' => $_POST['avatar']];
-	add_blog_post($data);
+	$data = ['firstname' => $_POST['firstname'],'lastname' => $_POST['lastname'],'email' => $_POST['email'],'password' =>$_POST['password'],'avatar' => ''];
+	add_blog_users($data);
 }
 
 $res = get_blog_users();
+update_blog_users();
+delete_blog_users();
 
 ?>
 

@@ -7,15 +7,18 @@ $isValid = 	isset($_POST['title'])
 			&& isset($_POST['content'])
 			&& $_POST['content'] != '';
 if($isValid) {
-	$data = ['title' => $_POST['title'],'permalink' => $_POST['permalink'],'content' => $_POST['content'],'publish_date' =>$_POST['publish_date'],'uid' => $_POST['uid'],'image' => $_POST['image'],'image_thumbnail' => $_POST['image_thumbnail']
-	];
-	add_blog_post($data);
+	$publish_date = date("Y-m-d H:i:s");
+	$permalink = str_replace(" ", "-", strtolower($_POST['title']));
+	$data = ['title' => $_POST['title'],'permalink' => $permalink,'content' => $_POST['content'],'publish_date' =>$publish_date,'uid' => '','image' => '','image_thumbnail' => ''];
+	add_blog_posts($data);
 }
 
 $res = get_blog_posts();
+update_blog_posts();
+delete_blog_posts();
 ?>
 
-<table border="1" width="80%">
+<table border="1" width="100%">
 	<tr>
 		<th>id</th>
 		<th>title</th>
@@ -24,7 +27,7 @@ $res = get_blog_posts();
 		<th>publish date</th>
 		<th>uid</th>
 		<th>image</th>
-		<th>thumbnail</th>
+		<th>image thumbnail</th>
 	</tr>
 	<?php foreach($res as $row){ ?>
 	<tr>
